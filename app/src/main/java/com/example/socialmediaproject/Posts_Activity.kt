@@ -1,0 +1,76 @@
+package com.example.socialmediaproject
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.example.socialmediaproject.Adapter.SocialRV
+import com.example.socialmediaproject.JSON.PostsInfo
+import com.example.socialmediaproject.JSON.PostsInfoItem
+import com.example.socialmediaproject.apiclasses.APIClient
+import com.example.socialmediaproject.apiclasses.APIinterface
+import com.example.socialmediaproject.databinding.ActivityPostsBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+class Posts_Activity : AppCompatActivity() {
+
+    lateinit var binding: ActivityPostsBinding
+
+    var showpost = SocialRV()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding= ActivityPostsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+
+        var checkAPI= APIClient.getClient()
+        if(checkAPI!=null){
+            var apiinter=checkAPI.create(APIinterface::class.java)
+            apiinter.getall().enqueue(object: Callback<PostsInfo> {
+                override fun onResponse(call: Call<PostsInfo>, response: Response<PostsInfo>) {
+
+                    var posts=response.body()
+                    if (posts!=null){
+
+                        showpost.submitList(posts)
+
+                    } //end if
+                } //response
+
+                override fun onFailure(call: Call<PostsInfo>, t: Throwable) {
+                } //end failure
+            })
+        } //end if
+
+
+
+
+        binding.apply {
+
+
+            postsRV.adapter=showpost
+
+
+            addingbtn.setOnClickListener {
+
+                var moveActivity= Intent(this@Posts_Activity, AddingPost_Activity::class.java)
+                startActivity(moveActivity)
+
+            } //end on click
+
+        } //end apply
+
+
+
+    } //end create
+
+
+
+
+
+
+} //end main

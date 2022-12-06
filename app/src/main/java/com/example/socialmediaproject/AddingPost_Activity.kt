@@ -56,8 +56,8 @@ class AddingPost_Activity : AppCompatActivity() {
                             call: Call<PostsInfoItem>,
                             response: Response<PostsInfoItem>
                         ) {
-                            var backmain = Intent(this@AddingPost_Activity, Posts_Activity::class.java)
-                            startActivity(backmain)
+                            var moveActivity = Intent(this@AddingPost_Activity, Posts_Activity::class.java)
+                            startActivity(moveActivity)
                             finish()
                         } //response
 

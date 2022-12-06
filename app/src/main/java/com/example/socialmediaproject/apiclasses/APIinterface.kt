@@ -15,14 +15,14 @@ interface APIinterface {
     @GET("posts/")
     fun getall(): Call<PostsInfo>
 
-    @GET("posts/")
-    fun getpost(@Path("postID") postID: Int): Call<PostsInfoItem>
+    @GET("posts/{id}")
+    fun getpost(@Path("id") postID: Int): Call<PostsInfoItem>
 
     @POST("posts/")
     fun addPost(@Body postData: PostsInfoItem): Call<PostsInfoItem>
 
-    @PUT("posts/{postId}")
-    fun updatePost(@Path("postID") postId: Int, @Body updateData: PostsInfoItem): Call<PostsInfoItem>
+    @PUT("posts/{id}")
+    fun updatePost(@Path("id") postId: Int, @Body updateData: PostsInfoItem): Call<PostsInfoItem>
 
 
 

@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintTop_toTopOf="parent">
@@ -39,8 +39,17 @@
             android:ems="10"
             android:minHeight="48dp"
             android:text="content"
-            android:textSize="15pt"
+            android:textSize="10pt"
             android:layout_marginBottom="20pt"/>
+
+        <TextView
+            android:id="@+id/showlike"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:minHeight="48dp"
+            android:text="Likes: "
+            android:textSize="10dp"/>
 
         <TextView
             android:id="@+id/showcomment"
@@ -49,7 +58,7 @@
             android:ems="10"
             android:minHeight="48dp"
             android:text="comment"
-            android:textSize="19dp"/>
+            android:textSize="10dp"/>
 
 
         <androidx.recyclerview.widget.RecyclerView

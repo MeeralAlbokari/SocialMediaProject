@@ -1,5 +1,6 @@
 package com.example.socialmediaproject.Adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -8,7 +9,7 @@ import com.example.socialmediaproject.JSON.PostsInfoItem
 import com.example.socialmediaproject.databinding.CommentRowBinding
 
 
-class CommentRV (): ListAdapter<PostsInfoItem, CommentRV.ViewHolder>(CommentDiffUtil()) {
+class CommentRV (var splitList: List<String>): RecyclerView.Adapter<CommentRV.ViewHolder>() {
 
     class ViewHolder(var binding: CommentRowBinding): RecyclerView.ViewHolder(binding.root){
     } //end item
@@ -23,16 +24,28 @@ class CommentRV (): ListAdapter<PostsInfoItem, CommentRV.ViewHolder>(CommentDiff
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var comments= getItem(position)
 
+
+
+        var comment=splitList[position]
         holder.binding.apply {
 
-            userTv.text=comments.user.toString()
-            commentTV.text=comments.comments
+            commentTV.text=comment
+            Log.d("TAG", "onBindViewHolder: ${comment}")
+
 
         } //apply
 
     } // on bindview
+
+    override fun getItemCount()=splitList.size
+
+
+
+    fun update(newList: List<String>){
+        splitList=newList
+        notifyDataSetChanged()
+    }
 
 
 }

@@ -7,5 +7,5 @@ data class PostsInfoItem(
     val user: String,
     val text: String,
     val likes: String,
-    val comments: String
+    var comments: String
 )

@@ -1,15 +1,15 @@
 package com.example.socialmediaproject.Adapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.socialmediaproject.JSON.PostsInfoItem
 
-class CommentDiffUtil (): DiffUtil.ItemCallback<PostsInfoItem>() {
-    override fun areItemsTheSame(oldItem: PostsInfoItem, newItem: PostsInfoItem): Boolean {
 
-        return oldItem.id == newItem.id
+class CommentDiffUtil (comments:List<String>): DiffUtil.ItemCallback<String>() {
+    override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
+
+        return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: PostsInfoItem, newItem: PostsInfoItem): Boolean {
+    override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
 
         return oldItem == newItem
 

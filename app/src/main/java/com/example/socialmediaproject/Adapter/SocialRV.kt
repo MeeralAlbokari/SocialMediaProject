@@ -14,7 +14,7 @@ import com.example.socialmediaproject.ShowPost_Activity
 import com.example.socialmediaproject.databinding.PostRowBinding
 
 
-class SocialRV (): ListAdapter<PostsInfoItem, SocialRV.ViewHolder>(PostDiffUtil()) {
+class SocialRV (val activity:Posts_Activity): ListAdapter<PostsInfoItem, SocialRV.ViewHolder>(PostDiffUtil()) {
 
     class ViewHolder(var binding: PostRowBinding): RecyclerView.ViewHolder(binding.root){
     } //end item
@@ -38,13 +38,27 @@ class SocialRV (): ListAdapter<PostsInfoItem, SocialRV.ViewHolder>(PostDiffUtil(
 
 
             /*postCV.setOnClickListener{
-                var moveActivity= Intent(activity,ShowPost_Activity::class.java)
-                startActivity(moveActivity)
+                var moveActivity= Intent(context,ShowPost_Activity::class.java)
+                moveActivity.putExtra("id",post.id)
+                context.startActivity(moveActivity)
+
             } //end set onclick*/
+            postCV.setOnClickListener{
+
+                activity.showpost(post.id)
+
+
+            }
+
+
 
         } //apply
 
     } // on bindview
+
+
+
+
 
 
 }

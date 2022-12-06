@@ -17,7 +17,7 @@ class Posts_Activity : AppCompatActivity() {
 
     lateinit var binding: ActivityPostsBinding
 
-    var showpost = SocialRV()
+    var showpost = SocialRV(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +67,15 @@ class Posts_Activity : AppCompatActivity() {
 
 
     } //end create
+
+
+    fun showpost(id: Int ){
+
+        var move=Intent(this, ShowPost_Activity::class.java)
+        move.putExtra("id",id)
+        startActivity(move)
+
+    } //end
 
 
 

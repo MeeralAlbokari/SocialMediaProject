@@ -1,16 +1,12 @@
 package com.example.socialmediaproject.Adapter
 
 
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.socialmediaproject.JSON.PostsInfoItem
 import com.example.socialmediaproject.Posts_Activity
-import com.example.socialmediaproject.ShowPost_Activity
 import com.example.socialmediaproject.databinding.PostRowBinding
 
 
@@ -36,19 +32,20 @@ class SocialRV (val activity:Posts_Activity): ListAdapter<PostsInfoItem, SocialR
             showuser.text=post.user.toString()
             showcontent.text=post.text.toString()
 
+            //Here it checks if the comments and likes aren't empty to print their size's in the textView
+            if(post.comments.isNotEmpty()){
+                showcom.text = "Comment: ${post.comments.split(",").size} "
+            } //end if comments
+            if(post.likes.isNotEmpty()){
+                showlikes.text = "Likes: ${post.likes.split(",").size} "
+            } //end likes
 
-            /*postCV.setOnClickListener{
-                var moveActivity= Intent(context,ShowPost_Activity::class.java)
-                moveActivity.putExtra("id",post.id)
-                context.startActivity(moveActivity)
 
-            } //end set onclick*/
-            postCV.setOnClickListener{
+            //whenever the textView of the thread is clicked it will pass the id of the post and change activity to show details
+            thread.setOnClickListener{
 
                 activity.showpost(post.id)
-
-
-            }
+            } //end on click
 
 
 
@@ -61,4 +58,4 @@ class SocialRV (val activity:Posts_Activity): ListAdapter<PostsInfoItem, SocialR
 
 
 
-}
+} //end RV

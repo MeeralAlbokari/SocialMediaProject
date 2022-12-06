@@ -21,10 +21,9 @@ class AddingPost_Activity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.addpost.setOnClickListener {
+            //when the button is clicked will check the function
             addingpost()
         }//end
-
-
 
 
     } //end create
@@ -33,6 +32,8 @@ class AddingPost_Activity : AppCompatActivity() {
     fun addingpost(){
 
         binding.apply {
+
+            //check if all the requirements are filled
             var title=titleET.text
             var content=contentET.text
 
@@ -45,27 +46,24 @@ class AddingPost_Activity : AppCompatActivity() {
                         PostsInfoItem(
                             0,
                             binding.titleET.text.toString(),
-                            user = "", //change to the username from the main
+                            user = "", //change to the username from the main, needs to be added in a if condition
                             binding.contentET.text.toString(),
                             "",
                             ""
-
-                        )
+                        ) //end postinfo
                     ).enqueue(object: Callback<PostsInfoItem> {
                         override fun onResponse(
                             call: Call<PostsInfoItem>,
                             response: Response<PostsInfoItem>
                         ) {
+                            //after being done with the requirements and clicking the button it will move to the posts activity
                             var moveActivity = Intent(this@AddingPost_Activity, Posts_Activity::class.java)
                             startActivity(moveActivity)
                             finish()
                         } //response
-
-
                         override fun onFailure(call: Call<PostsInfoItem>, t: Throwable) {
 
                         } //failure
-
                     })//object
                 } //if second
             } //first if

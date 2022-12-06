@@ -33,12 +33,12 @@ class ShowPost_Activity : AppCompatActivity() {
 
 
         var primk=intent.getIntExtra("id", 1)
-        addcomment(primk)
+        updatepost(primk)
 
 
     } //end create
 
-    fun addcomment(primk:Int){
+    fun updatepost(primk:Int){
 
         binding.apply {
             var apiclient= APIClient.getClient()
@@ -47,13 +47,18 @@ class ShowPost_Activity : AppCompatActivity() {
                 var apiInter = apiclient.create(APIinterface::class.java)
 
                 commentbtn.setOnClickListener {
+                    //need to add condition if the user is logged to be able to comment on the post
                     var addcomment = commentET.text.toString()
+
                     if (addcomment.isNotEmpty()) {
-                        //addcomment= post.comments + ", $commentsList"
+
                         post.comments += ", $addcomment"
                         Log.d("TAG", "onResponse: ${addcomment} + ${post.comments} ")
                         commentsList = post.comments.split(",")
+                        showcomment.text="Comments: ${commentsList.size}"
                         commentadapter.update(commentsList)
+
+
 
 
                         apiInter.updatePost(primk, post).enqueue(object : Callback<PostsInfoItem> {
@@ -61,8 +66,6 @@ class ShowPost_Activity : AppCompatActivity() {
                                 call: Call<PostsInfoItem>,
                                 response: Response<PostsInfoItem>
                             ) {
-
-
 
                             } //end response
 
@@ -72,12 +75,20 @@ class ShowPost_Activity : AppCompatActivity() {
                             ) {
 
                             } //end failure
-
                         }) //end obj
-
-
                     } //end if check if empty
                 } //on click
+
+
+                showlike.setOnClickListener {
+
+                    //need to add condition if the user is logged to be able to like the post
+                    post.likes += ", "
+                    var likes=post.likes.split(",")
+                    showlike.text=" Likes: ${likes.size}"
+
+
+                } //end on click
 
 
                 apiInter.getpost(primk).enqueue(object : Callback<PostsInfoItem> {
@@ -89,11 +100,16 @@ class ShowPost_Activity : AppCompatActivity() {
                          post=response.body()!!
 
                         Log.d("body", "hi $post" )
+
+                        //print what's in the details of the particular id that has been clicked
                         showtitle.text=post.title
                         showuser.text=post.user
                         showcontent.text=post.text
                         commentsList=post.comments.split(",")
-                        showlike.text=post.likes
+                        showcomment.text="Comments: ${commentsList.size}"
+                        //showlike.text=post.likes
+                        var likes=post.likes.split(",")
+                        showlike.text=" Likes: ${likes.size}"
                        commentadapter.update(commentsList)
                     }// end response
 
@@ -101,12 +117,16 @@ class ShowPost_Activity : AppCompatActivity() {
                         Log.d("body", "hi f" )
                     } //end failure
                 }) //end obj
-    }//end api if
+            }//end api if
 
-            } //apply
+        } //apply
 
 
-        } //end fun
+    } //end fun
+
+
+
+
 
     } //end main
 

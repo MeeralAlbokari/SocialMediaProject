@@ -30,7 +30,10 @@ class CommentRV (var splitList: List<String>): RecyclerView.Adapter<CommentRV.Vi
         var comment=splitList[position]
         holder.binding.apply {
 
-            commentTV.text=comment
+            if (comment!=""){
+                commentTV.text=comment
+            } //end if comment
+
             Log.d("TAG", "onBindViewHolder: ${comment}")
 
 
@@ -45,7 +48,7 @@ class CommentRV (var splitList: List<String>): RecyclerView.Adapter<CommentRV.Vi
     fun update(newList: List<String>){
         splitList=newList
         notifyDataSetChanged()
-    }
+    } //end fun
 
 
-}
+} //end RV

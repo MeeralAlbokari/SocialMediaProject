@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="Tilte" />
 
         <EditText
             android:id="@+id/contentET"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="content" />
 
         <Button
             android:id="@+id/addpost"

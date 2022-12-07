@@ -33,13 +33,13 @@ class SignUp_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.signUpBtn.setOnClickListener{
+        binding.button.setOnClickListener{
             binding.apply {
-                var email = signEmail.text.toString()
-                var username = signUserName.text.toString()
-                var password = signpass.text.toString()
-                var checkPassword = signpass2.text.toString()
-                var about = signAbout.text.toString()
+                var email = emailEt.text.toString()
+                var username = usernameTxt.text.toString()
+                var password = passET.text.toString()
+                var checkPassword = confirmPassEt.text.toString()
+                var about = aboutTxt.text.toString()
                 // image + // wepsite
                 var createdAt = LocalDateTime.now().toString()
                 if (email.isNotEmpty()&&username.isNotEmpty() &&password.isNotEmpty()&&checkPassword.isNotEmpty()&&about.isNotEmpty()){

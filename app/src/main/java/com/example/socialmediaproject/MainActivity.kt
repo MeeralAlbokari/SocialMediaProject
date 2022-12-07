@@ -44,9 +44,6 @@ class MainActivity : AppCompatActivity() {
 
         } //end*/
 
-        binding.buttonSignUp.setOnClickListener {
-            var moveActivity= Intent(this@MainActivity, Posts_Activity::class.java)
-            startActivity(moveActivity)
         } //end
 
     } //end create
@@ -77,4 +74,4 @@ class MainActivity : AppCompatActivity() {
     } //end fun
 
 
-} //end main
+//end main

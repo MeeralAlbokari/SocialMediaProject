@@ -15,6 +15,13 @@
         android:theme="@style/Theme.SocialMediaProject"
         tools:targetApi="31">
         <activity
+            android:name=".SignUp_Activity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ShowPost_Activity"
             android:exported="false">
             <meta-data

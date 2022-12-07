@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Social Media Project</string>
+    <string name="started_title">Blind Ninjas</string>
+    <string name="started_sub_title">Nice to meet you , come to join !</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_login">Login</string>
+
 </resources>

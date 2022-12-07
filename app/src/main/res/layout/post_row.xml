@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#A6B1B1"
     android:layout_marginBottom="20dp">
 
 
@@ -12,7 +13,7 @@
         android:id="@+id/postCV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/purple_200"
+        app:cardBackgroundColor="#BAC8C8"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
@@ -26,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:text="title"
+                android:fontFamily="@font/montserrat"
                 android:minHeight="48dp" />
 
             <TextView
@@ -34,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:text="user"
+                android:fontFamily="@font/montserrat"
                 android:minHeight="48dp" />
 
             <TextView
@@ -42,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:text="Content"
+                android:fontFamily="@font/montserrat"
                 android:minHeight="48dp" />
 
             <LinearLayout
@@ -55,6 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/montserrat"
                     android:text="Comments:" />
 
                 <TextView
@@ -62,6 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/montserrat"
                     android:text="Likes:" />
             </LinearLayout>
 
@@ -70,6 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Open Thread..."
+                android:fontFamily="@font/montserrat"
                 android:layout_marginLeft="280dp"/>
 
         </LinearLayout>

@@ -1,55 +1,40 @@
 package com.example.socialmediaproject
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.socialmediaproject.Adapter.SocialRV
-import com.example.socialmediaproject.JSON.PostsInfo
 import com.example.socialmediaproject.apiclasses.APIClient
 import com.example.socialmediaproject.apiclasses.APIinterface
-import com.example.socialmediaproject.databinding.ActivityMainBinding
+import com.example.socialmediaproject.databinding.ActivityLogInBinding
+import com.example.socialmediaproject.databinding.CommentRowBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+class LogIn_Activity : AppCompatActivity() {
 
-class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityLogInBinding
 
-    lateinit var binding: ActivityMainBinding
 
     var user = "az"
     var password = 123
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding= ActivityLogInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
-        /*binding.loginbtn.setOnClickListener{
-            CheckUserEmail(user,password)
-        }
-
-
-
-
-        binding.createaccbtn.setOnClickListener {
-
-        }
-
         binding.apply {
 
-        } //end*/
 
-        binding.buttonSignUp.setOnClickListener {
-            var moveActivity= Intent(this@MainActivity, Posts_Activity::class.java)
-            startActivity(moveActivity)
-        } //end
+
+        } //end apply
+
 
     } //end create
+
 
     fun CheckUserEmail(user:String, password:Int){
         val apiClient = APIClient.getClient()
@@ -77,4 +62,4 @@ class MainActivity : AppCompatActivity() {
     } //end fun
 
 
-} //end main
+}// end main

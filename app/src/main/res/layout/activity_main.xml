@@ -14,14 +14,14 @@
         android:id="@+id/tv_started_title"
         android:layout_width="385dp"
         android:layout_height="100dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="92dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/started_title"
         android:textColor="#698F8F"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.23"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,28 +34,35 @@
         android:text="@string/started_sub_title"
         android:textColor="#86A1A1"
         android:textSize="14sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="175dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_started_title"
+        tools:ignore="MissingConstraints" />
 
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_login"
         android:layout_width="327dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:text="@string/btn_login"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="346dp" />
+        app:layout_constraintBottom_toTopOf="@+id/bt_Register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_started_sub_title"
+        app:layout_constraintVertical_bias="0.824"
+        tools:ignore="MissingConstraints" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_Register"
         android:layout_width="327dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:text="@string/btn_register"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="389dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_started_sub_title"
+        app:layout_constraintVertical_bias="0.297"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

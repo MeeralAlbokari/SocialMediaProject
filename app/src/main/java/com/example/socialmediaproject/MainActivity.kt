@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        binding.loginbtn.setOnClickListener{
+        /*binding.loginbtn.setOnClickListener{
             CheckUserEmail(user,password)
         }
 
@@ -37,14 +37,17 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.createaccbtn.setOnClickListener {
-            var moveActivity= Intent(this@MainActivity, Posts_Activity::class.java)
-            startActivity(moveActivity)
+
         }
 
         binding.apply {
 
-        } //end
+        } //end*/
 
+        binding.buttonSignUp.setOnClickListener {
+            var moveActivity= Intent(this@MainActivity, Posts_Activity::class.java)
+            startActivity(moveActivity)
+        } //end
 
     } //end create
 

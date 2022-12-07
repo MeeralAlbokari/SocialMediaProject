@@ -25,6 +25,10 @@ interface APIinterface {
     fun updatePost(@Path("id") postId: Int, @Body updateData: PostsInfoItem): Call<PostsInfoItem>
 
 
+    @GET("login/{username}/{password}")
+    fun logIn(@Path("username") username: String, @Path("password") password: Int): Call<String>
+
+
 
 
 

@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:minHeight="48dp"
-            android:textSize="30pt"
+            android:textSize="30dp"
             android:text="title" />
 
         <TextView
@@ -49,7 +49,7 @@
             android:ems="10"
             android:minHeight="48dp"
             android:text="Likes: "
-            android:textSize="10dp"/>
+            android:textSize="20dp"/>
 
         <TextView
             android:id="@+id/showcomment"

@@ -45,33 +45,38 @@ class ShowPost_Activity : AppCompatActivity() {
 
                 //need to add condition if the user is logged to be able to like the post
                 var likes = post.likes.trim().split(",")
-
                 likesList.clear()
-                likesList.addAll(likes)
+                likesList = likes.filterNot { it == ""
+
+                } as ArrayList<String> /* = java.util.ArrayList<kotlin.String> */
+
+
                 Log.d("addAll", "add all : $likesList")
 
                 if (likesList.contains(username)) {
-                    likesList.remove(" $username")
+                    likesList.remove(username)
                     showlike.text = "Likes: ${likesList.size}"
                     Log.d("remove", "remove: $likesList")
 
                 } else {
-                    likesList.add("$username")
-
-                    }
-
+                    likesList.add(username)
                     showlike.text = " Likes: ${likesList.size}"
                     Log.d("add", "liked: $likesList")
-                } //end else
+                }//end else
+
+
 
                 var likesString = ""
                 likesList.forEach { s: String ->
                     likesString += "${s},"
                     Log.d("string", "server 2: $likesString")
-                    post.likes = likesString
-                newupdate(primk, post)
-            } //end on click
 
+                }
+
+                post.likes = likesString
+                newupdate(primk, post)
+
+            } //end on click
 
             commentbtn.setOnClickListener {
                 //need to add condition if the user is logged to be able to comment on the post

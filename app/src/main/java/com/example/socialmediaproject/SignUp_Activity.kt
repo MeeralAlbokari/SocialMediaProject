@@ -22,7 +22,7 @@ class SignUp_Activity : AppCompatActivity() {
     lateinit var userlsList : ArrayList<String>
     //var user = "az"
     lateinit var postsItem: UserInfoItem
-    var password = 123
+
     var x = true
     var y = true
     lateinit var createdAt :String

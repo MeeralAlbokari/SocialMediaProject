@@ -20,6 +20,7 @@ class ShowPost_Activity : AppCompatActivity() {
     lateinit var post:PostsInfoItem
 
     var username="second"
+    // user name
     lateinit var likesList:ArrayList<String>
 
 
@@ -28,7 +29,6 @@ class ShowPost_Activity : AppCompatActivity() {
 
         binding = ActivityShowPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         likesList = arrayListOf()
         commentsList = listOf()
         commentadapter = CommentRV(commentsList)

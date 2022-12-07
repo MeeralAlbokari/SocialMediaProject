@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.socialmediaproject.Adapter.SocialRV
-import com.example.socialmediaproject.JSON.PostsInfo
 import com.example.socialmediaproject.apiclasses.APIClient
 import com.example.socialmediaproject.apiclasses.APIinterface
 import com.example.socialmediaproject.databinding.ActivityMainBinding
@@ -49,9 +47,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(moveActivity)
         } //end
 
+
     } //end create
 
-    fun CheckUserEmail(user:String, password:Int){
+    fun CheckUserEmail(user:String, password:String){
         val apiClient = APIClient.getClient()
         if (apiClient != null){
             val apiInterface = apiClient.create(APIinterface::class.java)

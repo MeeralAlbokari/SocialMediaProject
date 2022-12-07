@@ -18,12 +18,15 @@ class Posts_Activity : AppCompatActivity() {
     lateinit var binding: ActivityPostsBinding
 
     var showpost = SocialRV(this)
+    // user name
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding= ActivityPostsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        var username = intent.getStringExtra("userName")
+
 
 
 
@@ -77,5 +80,8 @@ class Posts_Activity : AppCompatActivity() {
         startActivity(move)
 
     } //end
+    /*
+    sign Up > LogIn + username + api key> posts > >
+     */
 
 } //end main

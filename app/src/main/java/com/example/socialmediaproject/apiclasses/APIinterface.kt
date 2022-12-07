@@ -35,7 +35,7 @@ interface APIinterface {
 
 
     @GET("login/{username}/{password}")
-    fun logIn(@Path("username") username: String, @Path("password") password: Int): Call<String>
+    fun logIn(@Path("username") username: String, @Path("password") password: String): Call<String>
 
 
 

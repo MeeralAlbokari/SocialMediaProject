@@ -52,11 +52,10 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usrenameEt"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Type your Email"
-            android:inputType="textEmailAddress" />
+            android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

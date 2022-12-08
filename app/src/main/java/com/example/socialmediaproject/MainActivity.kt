@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.toLogIn.setOnClickListener {
+        binding.btLogIn.setOnClickListener {
             var moveToLogIn= Intent(this, LogIn_Activity::class.java)
             Log.d("trace KeyLenINTENT","INTENT")
             startActivity(moveToLogIn)
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         } //end*/
 
-        binding.buttonSignUp.setOnClickListener {
+        binding.btRegister.setOnClickListener {
             var moveActivity= Intent(this@MainActivity, SignUp_Activity::class.java)
             startActivity(moveActivity)
         } //end

@@ -61,7 +61,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:passwordToggleEnabled="true"
             tools:ignore="MissingConstraints">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -75,7 +74,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/passwordLayout"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -83,7 +81,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:passwordToggleEnabled="true"
+            app:counterEnabled="true"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordEt"
@@ -100,12 +101,13 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="155dp"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/usrenameLayout"
-            app:passwordToggleEnabled="true">
+            app:passwordToggleEnabled="true"
+            app:counterEnabled="true"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextcpassword"
@@ -117,7 +119,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/aboutLayout"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -126,14 +127,14 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:passwordToggleEnabled="true">
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextAbout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Type Your About"
-                android:inputType="textAutoCorrect" />
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -143,26 +144,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
         android:backgroundTint="#A0ACAC"
         android:text="Sign Up"
         android:textAllCaps="false"
         android:textColor="#F3EDED"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toLogIn" />
-
-    <Button
-        android:id="@+id/toLogIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/buttonSignUp"
-        android:layout_alignParentEnd="true"
-        android:backgroundTint="#A0ACAC"
-        android:text="LogIn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/copasswordLayout" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,6 @@ class LogIn_Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding= ActivityLogInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -29,9 +28,24 @@ class LogIn_Activity : AppCompatActivity() {
         binding.apply {
             var userName = usrenameEt.text.toString()
             var password = passET.text.toString()
+            Log.d("trace UserName","$userName")
+            Log.d("trace Pass","$password")
 
             // checking if the userName and password are correct
-            CheckUserEmail(userName,password)
+            binding.button2.setOnClickListener {
+                if (userName.isNotEmpty()&&password.isNotEmpty()){
+                    CheckUserEmail(userName,password)
+                    Log.d("trace UserName ACheck","$userName")
+                    Log.d("trace Pass After Check","$password")
+
+                    if (apiKey.length>45){
+                        var moveToPosts= Intent(this@LogIn_Activity, Posts_Activity::class.java)
+                        startActivity(moveToPosts)
+                    }
+                }
+
+            }
+
 
 
         } //end apply
@@ -47,11 +61,11 @@ class LogIn_Activity : AppCompatActivity() {
             apiInterface.logIn(username,password).enqueue(object : Callback<String> {
                 override fun onResponse(call: Call<String>, response: Response<String>) {
                     var UsersItem = response.body()
-                    //Log.d("Tagg","${UsersItem.toString()}")
-                    //apiKey = UsersItem.toString()
                     if (UsersItem != null){
-                        Log.d("Tag","${UsersItem}")
+                        Log.d("trace RespB","${response.body()}")
+                        Log.d("trace UserItem","${UsersItem.toString()}")
                         apiKey = UsersItem.toString()
+
                         // ***************
                         val intentFromLogIn = Intent(this@LogIn_Activity,Posts_Activity::class.java)
                         //intentPost.putExtra("userName",username)

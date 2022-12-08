@@ -33,13 +33,13 @@ class SignUp_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.button.setOnClickListener{
+        binding.buttonSignUp.setOnClickListener{
             binding.apply {
-                var email = emailEt.text.toString()
-                var username = usernameTxt.text.toString()
-                var password = passET.text.toString()
-                var checkPassword = confirmPassEt.text.toString()
-                var about = aboutTxt.text.toString()
+                var email = editTextEmail.text.toString()
+                var username = editTextUsername.text.toString()
+                var password = editTextPassword.text.toString()
+                var checkPassword = editTextcpassword.text.toString()
+                var about = editTextAbout.text.toString()
                 // image + // wepsite
                 var createdAt = LocalDateTime.now().toString()
                 if (email.isNotEmpty()&&username.isNotEmpty() &&password.isNotEmpty()&&checkPassword.isNotEmpty()&&about.isNotEmpty()){
@@ -51,6 +51,8 @@ class SignUp_Activity : AppCompatActivity() {
                         }
 
                     }
+                }else{
+                    Toast.makeText(applicationContext, "Pls Fill all the the user data", Toast.LENGTH_LONG).show()
                 }
 
             }
@@ -79,12 +81,13 @@ class SignUp_Activity : AppCompatActivity() {
                 override fun onResponse(call: Call<UserInfo>, response: Response<UserInfo>) {
                     val users = response.body()
                     users?.let {
+                        var emailsList = arrayListOf<String>()
+                        var usernamesList = arrayListOf<String>()
                         for (post in it){
-                            var emailsList = arrayListOf<String>()
-                            var usernamesList = arrayListOf<String>()
+
                             emailsList.add(post.email)
                             usernamesList.add(post.username)
-                            Log.d("Tag1","${emailsList}")
+                            Log.d("email List","${emailsList}")
                             var testEmail = email
                             var testUsername = username
                             for (test in emailsList){
@@ -153,7 +156,7 @@ class SignUp_Activity : AppCompatActivity() {
                             PostUser.image = user.image
                             PostUser.password = user.password
                             PostUser.sevarttings = user.sevarttings
-                            var moveActivity= Intent(this@SignUp_Activity, MainActivity::class.java)
+                            var moveActivity= Intent(this@SignUp_Activity, LogIn_Activity::class.java)
                             startActivity(moveActivity)
                          //
                         }

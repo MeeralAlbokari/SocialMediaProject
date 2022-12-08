@@ -12,6 +12,7 @@ import com.example.socialmediaproject.JSON.UserInfoItem
 import com.example.socialmediaproject.apiclasses.APIClient
 import com.example.socialmediaproject.apiclasses.APIinterface
 import com.example.socialmediaproject.databinding.ActivitySignUpBinding
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

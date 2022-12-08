@@ -19,17 +19,18 @@ class AddingPost_Activity : AppCompatActivity() {
 
         binding= ActivityAddingPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        var username = intent.getStringExtra("username").toString()
 
         binding.addpost.setOnClickListener {
             //when the button is clicked will check the function
-            addingpost()
+            addingpost(username)
         }//end
 
 
     } //end create
 
 
-    fun addingpost(){
+    fun addingpost(username:String){
 
         binding.apply {
 
@@ -43,14 +44,7 @@ class AddingPost_Activity : AppCompatActivity() {
                 if(checkAPI !=null){
                     var apiInter= checkAPI.create(APIinterface::class.java)
                     apiInter.addPost(
-                        PostsInfoItem(
-                            0,
-                            binding.titleET.text.toString(),
-                            user = "", //change to the username from the main, needs to be added in a if condition
-                            binding.contentET.text.toString(),
-                            "",
-                            ""
-                        ) //end postinfo
+                        PostsInfoItem(0, binding.titleET.text.toString(), username, content.toString(),"0","") //end postinfo
                     ).enqueue(object: Callback<PostsInfoItem> {
                         override fun onResponse(
                             call: Call<PostsInfoItem>,

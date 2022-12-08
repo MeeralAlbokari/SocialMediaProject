@@ -14,10 +14,11 @@ import retrofit2.Response
 class LogIn_Activity : AppCompatActivity() {
 
     lateinit var binding: ActivityLogInBinding
+    var apiKey = " "
 
 
 
-    var apiKey = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,24 +27,21 @@ class LogIn_Activity : AppCompatActivity() {
 
 
         binding.apply {
-            var userName = usrenameEt.text.toString()
-            var password = passET.text.toString()
-            Log.d("trace UserName","$userName")
-            Log.d("trace Pass","$password")
+
+
 
             // checking if the userName and password are correct
             binding.button2.setOnClickListener {
+                var userName = usrenameEt.text.toString()
+                var password = passET.text.toString()
+                Log.d("trace UserName","$userName")
+                Log.d("trace Pass","$password")
                 if (userName.isNotEmpty()&&password.isNotEmpty()){
-                    CheckUserEmail(userName,password)
+                    LogIn(userName,password)
                     Log.d("trace UserName ACheck","$userName")
                     Log.d("trace Pass After Check","$password")
-
-                    if (apiKey.length>45){
-                        var moveToPosts= Intent(this@LogIn_Activity, Posts_Activity::class.java)
-                        startActivity(moveToPosts)
-                    }
+                    Log.d("trace KeyLen1","$apiKey")
                 }
-
             }
 
 
@@ -54,37 +52,36 @@ class LogIn_Activity : AppCompatActivity() {
     } //end create
 
 
-    fun CheckUserEmail(username:String, password:String){
+    fun LogIn(user:String, password:String){
         val apiClient = APIClient.getClient()
         if (apiClient != null){
             val apiInterface = apiClient.create(APIinterface::class.java)
-            apiInterface.logIn(username,password).enqueue(object : Callback<String> {
+            apiInterface.logIn(user,password).enqueue(object : Callback<String> {
                 override fun onResponse(call: Call<String>, response: Response<String>) {
                     var UsersItem = response.body()
+                    Log.d("Tagg","${UsersItem.toString()}")
                     if (UsersItem != null){
-                        Log.d("trace RespB","${response.body()}")
-                        Log.d("trace UserItem","${UsersItem.toString()}")
-                        apiKey = UsersItem.toString()
-
-                        // ***************
-                        val intentFromLogIn = Intent(this@LogIn_Activity,Posts_Activity::class.java)
-                        //intentPost.putExtra("userName",username)
-                        intentFromLogIn.putExtra("userName",username)
-                        Log.d("AABB", "$username")
-                        startActivity(intentFromLogIn)
-
-                        //****************
-                    } //end if
-
-                } //end response
+                        Log.d("TagV","${UsersItem}")
+                        Log.d("TagR","${response.body()}")
+                        apiKey = UsersItem
+                        Log.d("TagR","Email: $apiKey")
+                        if (apiKey.length>45){
+                            Log.d("trace KeyLen2","$apiKey")
+                            var moveToPosts= Intent(this@LogIn_Activity, Posts_Activity::class.java)
+                            moveToPosts.putExtra("userName",user)
+                            startActivity(moveToPosts)
+                            //
+                        }
+                    }
+                }
 
                 override fun onFailure(call: Call<String>, t: Throwable) {
                     Log.d("Tag proplem","${t.message}")
-                } //end failure
+                }
 
 
             }) // End the object call
-        } //end if
+        }
     } //end fun
 
 

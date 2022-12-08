@@ -3,6 +3,7 @@ package com.example.socialmediaproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.socialmediaproject.Adapter.SocialRV
 import com.example.socialmediaproject.JSON.PostsInfo
 import com.example.socialmediaproject.JSON.PostsInfoItem
@@ -18,6 +19,7 @@ class Posts_Activity : AppCompatActivity() {
     lateinit var binding: ActivityPostsBinding
 
     var showpost = SocialRV(this)
+    var username = " "
     // user name
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +27,10 @@ class Posts_Activity : AppCompatActivity() {
         binding= ActivityPostsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var username = intent.getStringExtra("userName")
+
+        username = intent.getStringExtra("userName").toString()
+        Log.d("username: ","$username")
+
 
 
 

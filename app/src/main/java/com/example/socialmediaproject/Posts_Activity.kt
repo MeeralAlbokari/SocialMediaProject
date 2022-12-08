@@ -19,7 +19,7 @@ class Posts_Activity : AppCompatActivity() {
     lateinit var binding: ActivityPostsBinding
 
     var showpost = SocialRV(this)
-    var username = " "
+    //var username = " "
     var apiKey = " "
     // user name
 
@@ -29,7 +29,7 @@ class Posts_Activity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        username = intent.getStringExtra("userName").toString()
+        var username = intent.getStringExtra("userName").toString()
         apiKey = intent.getStringExtra("apiKey").toString()
         Log.d("username: ","$username")
 
@@ -64,8 +64,9 @@ class Posts_Activity : AppCompatActivity() {
             addingbtn.setOnClickListener {
 
                 //when the button is clicked to add post, it will change the activity
-                var moveActivity= Intent(this@Posts_Activity, AddingPost_Activity::class.java)
-                startActivity(moveActivity)
+                var moveToPostActivity= Intent(this@Posts_Activity, AddingPost_Activity::class.java)
+                moveToPostActivity.putExtra("username",username)
+                startActivity(moveToPostActivity)
 
             } //end on click
             showProfile.setOnClickListener {

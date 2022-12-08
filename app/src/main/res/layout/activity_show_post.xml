@@ -4,98 +4,135 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShowPost_Activity">
+    tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/showtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="10dp"
+        android:paddingBottom="16dp"
+        android:text="Post Title"
+        android:textColor="#9BB1B1"
+        android:textSize="24sp"/>
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/showuser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
+        android:paddingBottom="16dp"
+        android:textColor="@color/colorFormBackground"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/showtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:minHeight="48dp"
-            android:textSize="30dp"
-            android:text="title" />
-
-        <TextView
-            android:id="@+id/showuser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:minHeight="48dp"
-            android:text="user"
-            android:textSize="15pt"/>
-
+        app:layout_constraintHeight_percent="0.4"
+        android:id="@+id/svPostText"
+        android:layout_margin="10dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/showtitle"
+        app:layout_constraintBottom_toTopOf="@id/llViewPostLike">
         <TextView
             android:id="@+id/showcontent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:minHeight="48dp"
-            android:text="content"
-            android:textSize="10pt"
-            android:layout_marginBottom="20pt"/>
-
-        <TextView
-            android:id="@+id/showlike"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:minHeight="48dp"
-            android:text="Likes: "
-            android:textSize="20dp"/>
-
-        <TextView
-            android:id="@+id/showcomment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:minHeight="48dp"
-            android:text="comment"
-            android:textSize="10dp"/>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/commentRv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="193dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-    </LinearLayout>
+            android:text="Post Text"
+            android:textSize="22sp"
+            android:textColor="#7D8E8E"/>
+    </ScrollView>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/llViewPostLike"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toTopOf="@id/commentRv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <EditText
-            android:id="@+id/commentET"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
-            android:hint="Comments"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:autofillHints="" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/showcomment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Comments: 0"/>
+
+            <TextView
+                android:id="@+id/showlike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="10dp"
+                android:text="Likes: 0"/>
+        </LinearLayout>
 
         <Button
-            android:id="@+id/commentbtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:backgroundTint="#A0ACAC"
-            android:text="Add comment" />
+            android:layout_margin="8dp"
+            android:layout_weight="2"
+            android:id="@+id/btLike"
+            android:text="Like"/>
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/commentRv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_percent="0.25"
+        android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/llViewPostButtons"/>
+
+    <LinearLayout
+        android:id="@+id/llViewPostButtons"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:id="@+id/commentET"
+            android:hint="Comment"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="2"
+            android:id="@+id/commentbtn"
+            android:text="Submit"/>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

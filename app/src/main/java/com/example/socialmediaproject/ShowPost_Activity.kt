@@ -36,7 +36,9 @@ class ShowPost_Activity : AppCompatActivity() {
         binding.commentRv.adapter = commentadapter
 
 
-        var primk = intent.getIntExtra("id", 1)
+        var primk = intent.getIntExtra("apiKey", 1)
+        Log.d("ID","$primk")
+
         getpost(primk)
 
         binding.apply {

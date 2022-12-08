@@ -16,15 +16,16 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
 
+
     var user = "az"
     var password = 123
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.btLogIn.setOnClickListener {
             var moveToLogIn= Intent(this, LogIn_Activity::class.java)
             Log.d("trace KeyLenINTENT","INTENT")

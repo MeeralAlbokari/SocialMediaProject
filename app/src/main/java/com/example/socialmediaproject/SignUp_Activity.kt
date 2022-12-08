@@ -38,7 +38,7 @@ class SignUp_Activity : AppCompatActivity() {
             binding.apply {
                 var email = editTextEmail.text.toString()
                 var username = editTextUsername.text.toString()
-                var password = editTextPassword.text.toString()
+                var password = editTextcpassword.text.toString()
                 var checkPassword = editTextcpassword.text.toString()
                 var about = editTextAbout.text.toString()
                 // image + // wepsite

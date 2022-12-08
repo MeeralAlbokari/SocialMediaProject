@@ -26,6 +26,8 @@ interface APIinterface {
     @GET("posts/{id}")
     fun getpost(@Path("id") postID: Int): Call<PostsInfoItem>
     //
+    @GET("users/{api_key}")
+    fun getUser(@Path("api_key") apiKey: String): Call<UserInfoItem>
 
     @POST("posts/")
     fun addPost(@Body postData: PostsInfoItem): Call<PostsInfoItem>

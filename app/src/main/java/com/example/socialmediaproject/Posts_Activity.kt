@@ -20,6 +20,7 @@ class Posts_Activity : AppCompatActivity() {
 
     var showpost = SocialRV(this)
     var username = " "
+    var apiKey = " "
     // user name
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +30,8 @@ class Posts_Activity : AppCompatActivity() {
 
 
         username = intent.getStringExtra("userName").toString()
+        apiKey = intent.getStringExtra("apiKey").toString()
         Log.d("username: ","$username")
-
-
-
 
 
         var checkAPI= APIClient.getClient()
@@ -69,6 +68,12 @@ class Posts_Activity : AppCompatActivity() {
                 startActivity(moveActivity)
 
             } //end on click
+            showProfile.setOnClickListener {
+                var moveToProfile= Intent(this@Posts_Activity, Profile_Activity::class.java)
+                moveToProfile.putExtra("apiKey",apiKey)
+                Log.d("apiKey","i got : $apiKey")
+                startActivity(moveToProfile)
+            }
 
         } //end apply
 

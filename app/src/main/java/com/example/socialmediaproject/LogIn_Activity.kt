@@ -16,10 +16,6 @@ class LogIn_Activity : AppCompatActivity() {
     lateinit var binding: ActivityLogInBinding
     var apiKey = " "
 
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityLogInBinding.inflate(layoutInflater)
@@ -69,6 +65,9 @@ class LogIn_Activity : AppCompatActivity() {
                             Log.d("trace KeyLen2","$apiKey")
                             var moveToPosts= Intent(this@LogIn_Activity, Posts_Activity::class.java)
                             moveToPosts.putExtra("userName",user)
+                            moveToPosts.putExtra("apiKey",UsersItem.toString())
+                            Log.d("apiKey","'LogIn'LogInKey : $apiKey")
+
                             startActivity(moveToPosts)
                             //
                         }

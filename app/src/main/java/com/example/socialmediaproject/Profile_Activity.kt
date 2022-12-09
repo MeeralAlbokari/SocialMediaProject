@@ -1,5 +1,6 @@
 package com.example.socialmediaproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -29,12 +30,19 @@ class Profile_Activity : AppCompatActivity() {
             var apiKey = intent.getStringExtra("apiKey").toString()
             Log.d("API10","$apiKey")
             fillXml(apiKey)
+            updateBtn.setOnClickListener {
+                //var userInfoItem = fillXml(apiKey)
+                updateUserProfile(apiKey,userEmail.toString())
+
+            }
+
         }
 
 
     }
 
     fun fillXml(key:String){
+        //var returnedObject = UserInfoItem("","","","","","","","")
 
         var checkAPI= APIClient.getClient()
 
@@ -58,8 +66,39 @@ class Profile_Activity : AppCompatActivity() {
                 } //end failure
             }) //end obj
         }
+
     }
     fun glideProfilePic(url:String){
         Glide.with(this@Profile_Activity).load(url).into(userImage)
+    }
+    fun updateUserProfile(apyKey:String,email:String,){
+
+        val apiClientFS = APIClient.getClient()
+        if (apiClientFS != null) {
+            val apiInterfaceFS = apiClientFS.create(APIinterface::class.java)
+            if (user != null) {
+                apiInterfaceFS.updateUser(apyKey).enqueue(object : Callback<UserInfoItem> {
+                    override fun onResponse(
+                        call: Call<UserInfoItem>,
+                        response: Response<UserInfoItem>
+                    ) {
+                        var PostUser = response.body()
+                        if (PostUser != null) {
+                            Log.d("UserInfo1055","Here $PostUser")
+                            PostUser.email = email.toString()
+                            var moveActivity= Intent(this@Profile_Activity, this@Profile_Activity::class.java)
+                            startActivity(moveActivity)
+                            //
+                        }
+
+                    }
+                    override fun onFailure(call: Call<UserInfoItem>, t: Throwable) {
+                        Log.d("Tag", "${t.message}")
+                    }
+                })
+            }
+            // End the object call
+
+        }
     }
 }

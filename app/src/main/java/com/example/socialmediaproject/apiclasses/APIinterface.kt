@@ -21,6 +21,9 @@ interface APIinterface {
     @POST("users/")
     fun CreateUser(@Body User: UserInfoItem): Call<UserInfoItem>
 
+    @POST("users/{api_key}")
+    fun updateUser(@Path("api_key") apiKey: String): Call<UserInfoItem>
+
 
 
     @GET("posts/{id}")

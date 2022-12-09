@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShowPost_Activity"
-    android:background="@drawable/backg">
+    tools:context=".ShowPost_Activity">
 
 
     <LinearLayout
@@ -20,7 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textAlignment="center"
             android:minHeight="48dp"
             android:textSize="30dp"
             android:text="title" />
@@ -32,16 +30,13 @@
             android:ems="10"
             android:minHeight="48dp"
             android:text="user"
-            android:textSize="15pt"
-            android:paddingBottom="40dp"/>
+            android:textSize="15pt"/>
 
         <TextView
             android:id="@+id/showcontent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:textAlignment="center"
-            android:paddingTop="75dp"
             android:minHeight="48dp"
             android:text="content"
             android:textSize="10pt"
@@ -62,8 +57,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:minHeight="48dp"
-            android:text="comment: "
-            android:textSize="35dp"/>
+            android:text="comment"
+            android:textSize="10dp"/>
 
 
         <androidx.recyclerview.widget.RecyclerView

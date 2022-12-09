@@ -4,10 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
-    android:layout_marginBottom="20dp"
-    android:background="@drawable/backg1"
-    >
+    android:background="@color/colorFormBackground"
+    android:layout_marginBottom="20dp">
 
 
 
@@ -99,8 +97,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Open Thread..."
-                android:textColor="#A2CD51"
-                android:textSize="20dp"
                 android:fontFamily="@font/montserrat"
                 android:layout_marginLeft="280dp"/>
 

@@ -152,7 +152,7 @@ class ShowPost_Activity : AppCompatActivity() {
                         showuser.text=post.user
                         showcontent.text=post.text
                         commentsList=post.comments.split(",")
-                        showcomment.text="Comments: ${commentsList.size}"
+                        //showcomment.text="Comments: ${commentsList.size}"
                         //showlike.text=post.likes
                         var likes=post.likes.split(",")
                         showlike.text=" Likes: ${likes.size}"

@@ -49,7 +49,6 @@ class Profile_Activity : AppCompatActivity() {
                         binding.passwordTxt.setText(userItems.password.toString())
                         binding.userAbout.setText(userItems.about.toString())
                         binding.imageTxt.setText(userItems.image.toString())
-
                         glideProfilePic("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/91806943-2382-4f85-b288-a4dec56c91ef/d32a14r-f407db61-d62d-415f-bbe4-65622a61f968.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzkxODA2OTQzLTIzODItNGY4NS1iMjg4LWE0ZGVjNTZjOTFlZlwvZDMyYTE0ci1mNDA3ZGI2MS1kNjJkLTQxNWYtYmJlNC02NTYyMmE2MWY5NjguanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.evNfsgxd9v2YzLiNyy86lwZQHepb9zaEj8fmAvN_3is")
                     } //end if
 
